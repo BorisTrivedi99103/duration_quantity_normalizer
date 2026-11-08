@@ -1,6 +1,6 @@
 [project]
 name = "duration-quantity-normalizer"
-version = "0.1.0"
+version = "0.1.1"
 description = "Parses duration strings in various formats and returns the total in seconds."
 requires-python = ">=3.10"
 dependencies = []
