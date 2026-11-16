@@ -33,3 +33,10 @@ normalize_duration("0.5s", round_half_up=False)  # 0
 ## Awkward edge
 
 The grammar does not allow a bare number, a sign, or a comma between quantities. `"1h 30"`, `"-1h"`, and `"1h,30m"` all raise `DurationParseError`. If you need to accept those forms, normalize them before calling this library.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
